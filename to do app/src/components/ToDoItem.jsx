@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 function ToDoItem(props) {
-  var [isDone, setisDone] = useState(false);
-
-  function handleClick() {
-    setisDone(!isDone);
-  }
-
   return (
     <li
-      style={isDone ? { textDecoration: "line-through" } : null}
-      onClick={handleClick}
+      onClick={() => {
+        props.isDone(props.id);
+      }}
     >
       {props.todo}
     </li>
